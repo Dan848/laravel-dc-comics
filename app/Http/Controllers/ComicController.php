@@ -14,7 +14,9 @@ class ComicController extends Controller
      */
     public function index()
     {
-        //
+        $comics = Comic::all();
+        $database = config("db_partials");
+        return view("home", compact("comics", "database"));
     }
 
     /**
@@ -46,7 +48,8 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        //
+        $database = config("db_partials");
+        return view("comics.show", compact("comic", "database"));
     }
 
     /**
