@@ -59,9 +59,9 @@
                         Art by:
                     </div>
                     <div class="col-8 ms-5 ps-5 lh-1">
-                        @foreach ($comic["artists"] as $artists)
-                        <span class="dc-text-primary small">{{$artists}}</span>,
-                        @endforeach
+                        {{-- Artist --}}
+                        <span class="dc-text-primary small">{{$comic["artists"]}}</span>,
+
                     </div>
                 </div>
                 <div class="row border-top border-bottom py-2 justify-content-between">
@@ -69,9 +69,8 @@
                         Written by:
                     </div>
                     <div class="col-8 ms-5 ps-5 lh-1">
-                        @foreach ($comic["writers"] as $writers)
-                        <span class="dc-text-primary small">{{$writers}}</span>,
-                        @endforeach
+                        {{-- Artist --}}
+                        <span class="dc-text-primary small">{{$comic["writers"]}}</span>,
                     </div>
                 </div>
             </div>

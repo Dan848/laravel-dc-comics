@@ -16,7 +16,7 @@ class ComicController extends Controller
     {
         $comics = Comic::all();
         $database = config("db_partials");
-        return view("home", compact("comics", "database"));
+        return view("comics.index", compact("comics", "database"));
     }
 
     /**

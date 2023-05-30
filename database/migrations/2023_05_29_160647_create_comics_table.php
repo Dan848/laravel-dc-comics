@@ -19,9 +19,11 @@ return new class extends Migration
             $table->text("description");
             $table->text("thumb");
             $table->string("price");
-            $table->string("series");
+            $table->text("artists");
+            $table->text("writers");
+            $table->string("series")->nullable();
             $table->date("sale_date");
-            $table->string("type");
+            $table->string("type")->default("comic book");
             $table->timestamps();
         });
     }
