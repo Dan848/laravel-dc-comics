@@ -22,7 +22,6 @@ class ComicSeeder extends Seeder
             $newComic->description = $comic["description"];
             $newComic->thumb = $comic["thumb"];
             $newComic->price = $comic["price"];
-            $lastkey = array_key_last($comic["artists"]);
             $all_artist = "";
             foreach ($comic["artists"] as $key => $artist) {
                 if ($key !== array_key_last($comic["artists"])){
