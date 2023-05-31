@@ -74,7 +74,8 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        $database = config("db_partials");
+        return view("comics.edit", compact("comic", "database"));
     }
 
     /**
@@ -86,7 +87,9 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+        $comic->update($data);
+        return redirect()->route("comic.show", $comic->id);
     }
 
     /**

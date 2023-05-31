@@ -9,9 +9,21 @@
 <div class="main-bg-white">
     <!-- Blue Line -->
     <div class="blue-stripes">
-        <div class="container px-5 position-relative h-100">
+        <div class="container px-5 d-flex align-items-center justify-content-sm-end justify-content-center position-relative h-100">
             <div class="img-box absolute">
                 <img class="img-fluid" src="{{$comic["thumb"]}}" alt="">
+            </div>
+            <div>
+                    <a href="{{ route("comic.edit", $comic->id) }}" class="btn btn-warning fw-bolder">
+                        <i class="fa-solid fa-pen-to-square me-1"></i>Edit
+                    </a>
+
+                {{-- <form action="{{ route("comic.delete", $comic->id) }}"> --}}
+                    <button class="btn btn-danger fw-bolder del-button">
+                        <i class="fa-solid fa-eraser me-1"></i>Delete
+                    </button>
+                </form>
+
             </div>
         </div>
     </div>
@@ -78,6 +90,7 @@
             <div class="col">
                 <h4 class="mb-4">Specs</h4>
                 <div class="row border-top border-bottom py-2 justify-content-between">
+                    {{-- Series --}}
                     <div class="col-auto small">
                         Series
                     </div>
@@ -86,6 +99,7 @@
                     </div>
                 </div>
                 <div class="row border-top border-bottom py-2 justify-content-between">
+                    {{-- Price --}}
                     <div class="col-auto small">
                         U.S. Price:
                     </div>
@@ -94,6 +108,7 @@
                     </div>
                 </div>
                 <div class="row border-top border-bottom py-2 justify-content-between">
+                    {{-- Sale Date --}}
                     <div class="col-auto small">
                         On Sale Date
                     </div>
@@ -104,18 +119,6 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid border mt-5">
-        <div class="container">
-            <div class="row">
-                @foreach ($database["bridgeSection"] as $bridge)
-                    <div class="col d-flex justify-content-between border p-3">
-                        <div class="text-uppercase small
-                        fw-bold opacity-50">{{$bridge["text"]}}</div>
-                        <img class="img-fluid" src="/img/{{$bridge["src"]}}" alt="{{$bridge["text"]}}">
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
+    @include("partials.bridge-secondary")
 </div>
 @endsection
