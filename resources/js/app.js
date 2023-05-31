@@ -20,4 +20,9 @@ deleteSubButton.addEventListener("click", (event) =>{
     const deleteModalItemTitle = modal.querySelector("#deleteModalItemTitle");
     deleteModalItemTitle.textContent = itemTitle;
     console.log("click2");
+
+    const deleteModalButton = document.querySelector(".delete-modal-button");
+    deleteModalButton.addEventListener("click", () => {
+        deleteSubButton.parentElement.submit()
+    });
 })

@@ -20,6 +20,7 @@
                 </a>
                 {{-- Delete Button --}}
                 <form class="inline-block" action="{{ route("comic.destroy", $comic->id) }}" method="POST">
+                    @csrf
                     @method("DELETE")
                     <button type="submit" class="btn btn-danger fw-bolder ms-1 delete-button" data-item-title="{{$comic->title}}">
                         <i class="fa-solid fa-eraser me-1"></i>Delete
