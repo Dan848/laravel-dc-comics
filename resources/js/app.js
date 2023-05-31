@@ -7,15 +7,17 @@ import.meta.glob([
 
 
 
-const deleteSubButton = document.querySelector(".del-button");
+const deleteSubButton = document.querySelector(".delete-button");
 
 deleteSubButton.addEventListener("click", (event) =>{
     event.preventDefault();
-    const itemTitle = button.getAttribute("data-item-title");
-    const modal = document.getElementById("delModal");
-    const bootstrapModal =new bootstrap.Modal(modal);
+    const itemTitle = deleteSubButton.getAttribute("data-item-title");
+    const modal = document.getElementById("deleteModal");
+    console.log(itemTitle);
+    const bootstrapModal = new bootstrap.Modal(modal);
     bootstrapModal.show();
-
+    console.log("click1");
     const deleteModalItemTitle = modal.querySelector("#deleteModalItemTitle");
-    deleteModalItemTitle.textContent = dataTitle
+    deleteModalItemTitle.textContent = itemTitle;
+    console.log("click2");
 })

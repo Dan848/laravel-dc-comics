@@ -10,23 +10,24 @@
     <!-- Blue Line -->
     <div class="blue-stripes">
         <div class="container px-5 d-flex align-items-center justify-content-sm-end justify-content-center position-relative h-100">
+            {{-- Thumbnail --}}
             <div class="img-box absolute">
                 <img class="img-fluid" src="{{$comic["thumb"]}}" alt="">
             </div>
-            <div>
-                    <a href="{{ route("comic.edit", $comic->id) }}" class="btn btn-warning fw-bolder">
-                        <i class="fa-solid fa-pen-to-square me-1"></i>Edit
-                    </a>
-
-                {{-- <form action="{{ route("comic.delete", $comic->id) }}"> --}}
-                    <button class="btn btn-danger fw-bolder del-button">
+                {{-- Edit Button --}}
+                <a href="{{ route("comic.edit", $comic->id) }}" class="inline-block btn btn-warning fw-bolder me-1">
+                    <i class="fa-solid fa-pen-to-square me-1"></i>Edit
+                </a>
+                {{-- Delete Button --}}
+                <form class="inline-block" action="{{ route("comic.destroy", $comic->id) }}" method="POST">
+                    @method("DELETE")
+                    <button type="submit" class="btn btn-danger fw-bolder ms-1 delete-button" data-item-title="{{$comic->title}}">
                         <i class="fa-solid fa-eraser me-1"></i>Delete
                     </button>
                 </form>
-
-            </div>
         </div>
     </div>
+    {{-- Comic Main Info --}}
     <div class="container p-5">
         <div class="row">
             <!-- Comic -->
@@ -121,4 +122,5 @@
     </div>
     @include("partials.bridge-secondary")
 </div>
+@include("partials.delete-modal")
 @endsection
