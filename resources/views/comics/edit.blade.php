@@ -7,6 +7,47 @@
 @section("main_content")
 <div class="main-bg-dark">
     <div class="p-5 text-white container">
+        {{-- Errors Section --}}
+        @if ($errors->any())
+        <div class="alert alert-danger mt-2">
+            @error('title')
+                <p>*{{ $message }}</p>
+            @enderror
+
+            @error('thumb')
+                <p>*{{ $message }}</p>
+            @enderror
+
+            @error('price')
+                <p>*{{ $message }}</p>
+            @enderror
+
+            @error('sale_date')
+                <p>*{{ $message }}</p>
+            @enderror
+
+            @error('artists')
+                <p>*{{ $message }}</p>
+            @enderror
+
+            @error('writers')
+                <p>*{{ $message }}</p>
+            @enderror
+
+            @error('series')
+                <p>*{{ $message }}</p>
+            @enderror
+
+            @error('type')
+                <p>*{{ $message }}</p>
+            @enderror
+
+            @error('description')
+                <p>*{{ $message }}</p>
+            @enderror
+        </div>
+        @endif
+        {{-- Form Update Section --}}
         <form action="{{route("comic.update", $comic->id)}}" method="POST">
             @csrf
             @method("PUT")

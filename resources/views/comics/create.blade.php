@@ -7,6 +7,8 @@
 @section("main_content")
 <div class="main-bg-dark">
     <div class="p-5 text-white container">
+        {{-- Errors Section --}}
+        @if ($errors->any())
         <div class="alert alert-danger mt-2">
         @error('title')
             <p>*{{ $message }}</p>
@@ -43,9 +45,9 @@
         @error('description')
             <p>*{{ $message }}</p>
         @enderror
-        </div>
-
-
+    </div>
+    @endif
+        {{-- Form Create Section --}}
         <form action="{{route("comic.store")}}" method="POST">
             @csrf
             <div class="input-group mb-3">
